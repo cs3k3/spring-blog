@@ -23,9 +23,9 @@
                 <h2><a th:href="@{'/posts/' + ${post.id}}"
                        th:text="${post.title}">Title</a>
                 </h2>
-                <h5 th:text="'Author ' + ${post.account.firstName}">Author</h5>
-                <h5 th:text="'Published on '+${post.createdAt}">Created At</h5>
-                <h5 th:text="'Last updated on '+${post.updatedAt}">Updated At</h5>
+                <h6 th:text="'Author ' + ${post.account.firstName}">Author</h6>
+                <h6 th:text="'Published on '+${post.createdAt}">Created At</h6>
+                <h6 th:text="'Last updated on '+${post.updatedAt}">Updated At</h6>
                 <p th:text="${post.body}">body text</p>
                 <br />
             </div>
@@ -35,7 +35,7 @@
             <li><a th:href="@{/register}">Register</a></li>
             <li><a th:href="@{/login}">Login</a></li>
         </ul>
-        <div sec:authorize="isAuthenticated()">
+        <div class="logout" sec:authorize="isAuthenticated()">
             <form action="#" th:action="@{/logout}"
                   method="POST">
                 <div>

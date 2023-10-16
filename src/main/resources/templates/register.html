@@ -10,9 +10,9 @@
 </head>
 <body>
 <div class="container">
-    <h1>Register page</h1>
+    <h1>Register</h1>
     <hr />
-    <a th:href="@{/}">Home</a>
+    <a class ="home" th:href="@{/}">Home</a>
     <form action="#" th:action="@{/register}" th:object="${account}" method="POST">
         <div>
             <label for="firstname">First Name</label>
