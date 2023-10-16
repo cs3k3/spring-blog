@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,10 +25,11 @@ public class PostService {
     }
 
     public Post save(Post post) {
+        String currentTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd HH:mm"));
         if (post.getId() == null) {
-            post.setCreatedAt(LocalDateTime.now());
+            post.setCreatedAt(currentTime);
         }
-        post.setUpdatedAt(LocalDateTime.now());
+        post.setUpdatedAt(currentTime);
         return postRepository.save(post);
     }
 
