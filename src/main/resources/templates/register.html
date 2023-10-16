@@ -1,17 +1,18 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blog :: Register</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/register.css}">
 </head>
 <body>
 <div class="container">
     <h1>Register page</h1>
     <hr />
     <a th:href="@{/}">Home</a>
-    <h2>Register New Account</h2>
     <form action="#" th:action="@{/register}" th:object="${account}" method="POST">
         <div>
             <label for="firstname">First Name</label>

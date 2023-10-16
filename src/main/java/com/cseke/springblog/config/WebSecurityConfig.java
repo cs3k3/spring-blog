@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -27,15 +28,20 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                //.csrf(AbstractHttpConfigurer::disable)
+                .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) -> authorize
-                    .requestMatchers(antMatcher("/register")).permitAll()
-                    .requestMatchers(antMatcher("/login")).permitAll()
-                    .requestMatchers(antMatcher("/")).permitAll()
-                    .requestMatchers(antMatcher("/posts/**")).permitAll()
-                    .requestMatchers(antMatcher("/h2-console/**")).permitAll()
-                    //.requestMatchers(PathRequest.toH2Console()).permitAll()
-                    .anyRequest().authenticated()
+                        .requestMatchers(antMatcher("/css/**")).permitAll()
+                        .requestMatchers(antMatcher("/js/**")).permitAll()
+                        .requestMatchers(antMatcher("/images/**")).permitAll()
+                        .requestMatchers(antMatcher("/fonts/**")).permitAll()
+                        .requestMatchers(antMatcher("/webjars/**")).permitAll()
+                        .requestMatchers(antMatcher("/")).permitAll()
+                        .requestMatchers(antMatcher("/rss/**")).permitAll()
+                        .requestMatchers(antMatcher("/register/**")).permitAll()
+                        .requestMatchers(antMatcher("/posts/**")).permitAll()
+                        .requestMatchers(antMatcher("/h2-console/**")).permitAll()
+                        .requestMatchers(antMatcher("/static/**")).permitAll()
+                        .anyRequest().authenticated()
                 );
 
         http.csrf(csrf -> csrf.disable());

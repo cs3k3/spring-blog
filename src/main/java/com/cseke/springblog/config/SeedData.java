@@ -65,13 +65,13 @@ public class SeedData implements CommandLineRunner {
 
 
             Post post1 = new Post();
-            post1.setTitle("post1 title");
-            post1.setBody("post1 body");
+            post1.setTitle("This is just seed data, did you know that?");
+            post1.setBody("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales ante non feugiat elementum. Phasellus non odio velit. Fusce ornare iaculis cursus. Pellentesque ornare consequat metus, faucibus efficitur mauris lacinia non. Suspendisse gravida felis ut augue iaculis molestie. Etiam vel sem id mi porttitor posuere sed sit amet mi. Sed non mauris mattis, pellentesque neque hendrerit, convallis dui. Pellentesque quis felis a urna porta dignissim ut eget enim. Integer tortor magna, ultrices id arcu quis, commodo tristique quam.");
             post1.setAccount(account1);
 
             Post post2 = new Post();
-            post2.setTitle("post2 title");
-            post2.setBody("post2 body");
+            post2.setTitle("I totally mean it, this really IS just seed data.");
+            post2.setBody("Nulla elit ante, tristique eget tortor sit amet, auctor condimentum lorem. Integer eget pretium sem, vitae varius neque. Mauris sit amet elit eget lorem cursus accumsan. Suspendisse eu neque luctus est hendrerit bibendum. Morbi consequat diam ac cursus accumsan. Nullam ut ipsum ac enim tincidunt gravida vel ut diam. Suspendisse nec massa a leo fermentum egestas. Quisque aliquam lobortis gravida. Ut non leo libero.");
             post2.setAccount(account2);
 
             postService.save(post1);
