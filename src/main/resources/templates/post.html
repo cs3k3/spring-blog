@@ -10,19 +10,27 @@
   <link rel="stylesheet" type="text/css" th:href="@{/css/styling.css}">
 </head>
 <body>
-<div class="container">
-  <a class ="home" th:href="@{/}">Home</a>
-  <div class="post">
-    <h2 th:text="${post.title}">Title</h2>
-    <h6 th:text="'Author ' + ${post.account.firstName}">Author</h6>
-    <h6 th:text="'Created at ' + ${post.createdAt}">Created At</h6>
-    <h6 th:text="'Last updated on '+${post.updatedAt}">Updated At</h6>
-    <p th:text="${post.body}">body text</p>
-  </div>
-  <ul sec:authorize="isAuthenticated()">
-    <li><a th:href="@{'/posts/' + ${post.id} + '/edit'}">Edit</a></li>
-    <li><a th:href="@{'/posts/' + ${post.id} + '/delete'}">Delete</a></li>
-  </ul>
-</div>
+<main>
+  <section class="navbar">
+    <div class="title">
+      <h1><a class ="home" th:href="@{/}">Home</a></h1>
+    </div>
+  </section>
+  <section class="glass">
+    <div class="post">
+      <h2 class="post-title" th:text="${post.title}">Title</h2>
+
+      <h6 th:text="'Author ' + ${post.account.firstName}">Author</h6>
+      <h6 th:text="'Created at ' + ${post.createdAt}">Created At</h6>
+      <h6 th:text="'Last updated on '+${post.updatedAt}">Updated At</h6>
+
+      <p th:text="${post.body}">body text</p>
+      <div id="orientation" sec:authorize="isAuthenticated()">
+        <a id="onetime" th:href="@{'/posts/' + ${post.id} + '/edit'}">Edit</a>
+        <a th:href="@{'/posts/' + ${post.id} + '/delete'}" sec:authorize="hasRole('ROLE_ADMIN')">Delete</a>
+      </div>
+    </div>
+  </section>
+</main>
 </body>
 </html>

@@ -91,7 +91,6 @@ public class PostController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String deletePost(@PathVariable Long id) {
 
-        // find post by id
         Optional<Post> optionalPost = postService.getById(id);
         if (optionalPost.isPresent()) {
             Post post = optionalPost.get();

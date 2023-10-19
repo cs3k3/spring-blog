@@ -10,40 +10,27 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styling.css}">
 </head>
 <body>
-    <div class="container">
-        <h1>Blog</h1>
-        <hr />
-        <div sec:authorize="isAuthenticated()">
-            <ul>
-                <li><a th:href="@{/posts/new}">Create a new Post</a></li>
-            </ul>
+<body>
+<main>
+    <section class="navbar">
+        <div class="title" sec:authorize="!isAuthenticated()"><h1>Blog</h1></div>
+        <div class="title" sec:authorize="isAuthenticated()"><h1>Hello, <span sec:authentication="name">Username</span></h1></div>
+        <div class="register" sec:authorize="!isAuthenticated()"><a th:href="@{/register}">Register</a></div>
+        <div class="login" sec:authorize="!isAuthenticated()"><a th:href="@{/login}">Login</a></div>
+        <div class="register" sec:authorize="isAuthenticated()"><a th:href="@{/posts/new}">Create a new Post</a></div>
+        <div class="login" sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></div>
+    </section>
+    <section class="glass">
+        <div class="post" th:each="post : ${posts}">
+            <h2 class="post-title"><a th:href="@{'/posts/' + ${post.id}}"th:text="${post.title}">Title 1</a></h2>
+
+            <h6 class="info" th:text="'Author ' + ${post.account.firstName}">Author</h6>
+            <h6 class="info" th:text="'Published on '+${post.createdAt}">Created At</h6>
+            <h6 class="info" th:text="'Last updated on '+${post.updatedAt}">Updated At</h6>
+
+            <p class="body" th:text="${post.body}">post body</p>
+            <br />
         </div>
-        <div class="post-container">
-            <div class="post" th:each="post : ${posts}">
-                <h2><a th:href="@{'/posts/' + ${post.id}}"
-                       th:text="${post.title}">Title</a>
-                </h2>
-                <h6 th:text="'Author ' + ${post.account.firstName}">Author</h6>
-                <h6 th:text="'Published on '+${post.createdAt}">Created At</h6>
-                <h6 th:text="'Last updated on '+${post.updatedAt}">Updated At</h6>
-                <p th:text="${post.body}">body text</p>
-                <br />
-            </div>
-        </div>
-        <hr />
-        <ul sec:authorize="!isAuthenticated()">
-            <li><a th:href="@{/register}">Register</a></li>
-            <li><a th:href="@{/login}">Login</a></li>
-        </ul>
-        <div class="logout" sec:authorize="isAuthenticated()">
-            <form action="#" th:action="@{/logout}"
-                  method="POST">
-                <div>
-                    <label>Hi, <span sec:authentication="name">Username</span></label>
-                </div>
-                <button type="submit">Logout</button>
-            </form>
-        </div>
-    </div>
+    </section>
+</main>
 </body>
-</html>

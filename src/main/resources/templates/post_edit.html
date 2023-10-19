@@ -9,26 +9,27 @@
   <link rel="stylesheet" type="text/css" th:href="@{/css/styling.css}">
 </head>
 <body>
-<div class="container">
-  <a class ="home" th:href="@{/}">Home</a>
-  <form action="#"
-        th:action="@{'/posts/{id}'(id=${post.id})}"
-        th:object="${post}"
-        method="post">
-    <input type="hidden" th:field="*{account}" />
-    <input type="hidden" th:field="*{createdAt}" />
-    <h2>Update Post</h2>
-    <div>
+<main>
+  <section class="navbar">
+    <div class="title">
+      <h1><a class ="home" th:href="@{/}">Home</a></h1>
+    </div>
+  </section>
+  <section class="glass">
+    <form class="content_login" action="#"
+          th:action="@{'/posts/{id}'(id=${post.id})}"
+          th:object="${post}"
+          method="post">
+      <input type="hidden" th:field="*{account}" />
+      <input type="hidden" th:field="*{createdAt}" />
+      <h2>Update Post</h2>
       <label for="new-post-title">Title</label>
-      <input id="new-post-title" type="text" th:field="*{title}" placeholder="Title"/>
-    </div>
-    <div>
+      <input id="new-post-title" type="text" th:field="*{title}" placeholder="Title" maxlength="40">
       <label for="new-post-body">Body</label>
-      <textarea id="new-post-body" th:field="*{body}"></textarea>
-    </div>
-    <button type="submit">Update Post</button>
-  </form>
-</div>
-
+      <textarea id="new-post-body" th:field="*{body}" maxlength="500"></textarea>
+      <button type="submit">Update Post</button>
+    </form>
+  </section>
+</main>
 </body>
 </html>

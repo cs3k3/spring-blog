@@ -1,60 +1,169 @@
-body {
-    margin:0;
-    color: white;
-    background: #202731;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: "Trebuchet MS";
 }
 
-.post{
-    position: relative;
+main{
+    min-height: 100vh;
+    background: linear-gradient(to right top, #c8e1cc, #d2e7d6);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 10px;
-    padding: 50px 150px 50px 150px;
-    text-overflow: ellipsis;
 }
 
-h1 {
-    text-align: center;
+.glass{
+    background: white;
+    min-height: 80vh;
+    width: 60%;
+    background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+    border-radius: 2rem;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    box-shadow: 5px 5px 10px #748877;
 }
 
-h6 {
+.navbar{
+    z-index: 10000;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 100px;
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    box-shadow: 5px 5px 10px #748877;
+}
+
+.post{
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.title{
+    flex:8;
+}
+.login{
+    flex:1;
+    background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+    padding: 5px;
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.register{
+    flex:1;
+    display: flex;
+    background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+    padding: 5px;
+    border-radius: 2rem;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-title{
+    flex:1;
+}
+.info{
+    flex:1;
+}
+.body{
+    flex:20;
+}
+p {
+    padding: 35px;
+}
+
+#orientation{
+    width:100%;
+    padding-left: 30px;
+}
+#onetime{
+    margin-right:20px;
+}
+
+/*Login, register, edit and new page:*/
+
+.glass_login{
+    display: flex;
+    background: white;
+    min-height: 40vh;
+    width: 30%;
+    background: linear-gradient(to right bottom, rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+    border-radius: 2rem;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    box-shadow: 5px 5px 10px #748877;
+}
+
+input{
+    width: 80%;
+    height: 40px;
     margin: 5px;
-    text-align: left;
+    background: linear-gradient(to right bottom, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 4px;
+    resize: none;
+}
+label{
+    display: block;
+    margin: 5px;
 }
 
-li {
-    list-style-type: none;
-}
-
-.logout{
-    margin-left: 40px;
-}
 
 button{
-    margin-top: 5px;
-    margin-bottom: 15px;
-
+    width: 80%;
+    height: 40px;
+    margin-top: 40px;
+    background: linear-gradient(to right bottom, rgba(255,255,255,0.9), rgba(255,255,255,0.1));
+    border: 2px solid;
+    border-radius: 4px;
+    resize: none;
 }
 
-.home{
-    padding-top: 40px;
-    padding-bottom: 5px;
-    padding-left: 40px;
+button:hover{
+    background: ivory;
 }
 
-a:link{
-    color: white;
+.content_login{
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    padding: 10px;
 }
-a:visited{
-    color: white;
+
+#for_margin{
+    margin-bottom: 20px;
 }
-a:hover{
-    color:white;
-    font-weight: bolder;
+
+textarea{
+    width: 80%;
+    height: 350px;
+    padding: 12px 20px;
+    border: 2px solid;
+    border-radius: 4px;
+    resize: none;
 }
-a:active{
-    color:white;
+
+#fourohfour{
+    display: flex;
+    padding: 10px;
+    height: 70vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
