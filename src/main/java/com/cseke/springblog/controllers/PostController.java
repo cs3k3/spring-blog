@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.security.Principal;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
@@ -39,8 +40,14 @@ public class PostController {
     }
 
     @GetMapping("/posts/new")
-    public String createNewPost(Model model){
-        Optional<Account> optionalAccount=accountService.findByEmail("user1@email.com");
+    @PreAuthorize("isAuthenticated()")
+    public String createNewPost(Model model, Principal principal){
+        String authUsername = "anonymousUser";
+        if (principal != null) {
+            authUsername = principal.getName();
+        }
+
+        Optional<Account> optionalAccount=accountService.findByEmail(authUsername);
         if (optionalAccount.isPresent()) {
             Post post = new Post();
             post.setAccount(optionalAccount.get());
